@@ -7,9 +7,8 @@ import SwiftUI
 public enum AppRoute: Hashable, Sendable {
     case settings
     case contacts
+    case contactsDetails(id: String)
     case profile(id: String)
-    case patients
-    case patientDetails(id: String)
 }
 
 @MainActor
@@ -26,16 +25,16 @@ public enum AppState: Sendable {
 // 2. The Silent Mock
 @MainActor
 public struct MockRouter: AppRouting {
-    nonisolated public init() {}
-    
+    public nonisolated init() {}
+
     public func popToRoot() {
         print("Mock Router: Reset to Root requested.")
     }
-    
+
     public func navigate(to: AppRoute) {
         print("Mock Router: Navigate to \(to) requested.")
     }
-    
+
     public func selectTab(_ tab: AppTab) {
         print("selected Tab: \(tab)")
     }

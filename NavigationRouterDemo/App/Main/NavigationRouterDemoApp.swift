@@ -6,8 +6,8 @@
 //
 
 import CoreNav
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct NavigationRouterDemoApp: App {
@@ -31,7 +31,24 @@ struct NavigationRouterDemoApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.appRouter, router)
+                .environment(router)
                 .environment(sessionManager)
+                // 🚀 Listen for incoming URLs (Universal Links or Custom Schemes)
+                .onOpenURL { incomingURL in
+
+                    // 1. Ensure the user is actually logged in before routing!
+                    guard sessionManager.appState == .main else {
+                        print("Ignored deep link: User is not logged in.")
+                        return
+                    }
+
+                    // 2. Parse the URL into your enum
+                    if incomingURL.host == "settings",
+                       let id = incomingURL.pathComponents.last {
+                        // 3. Fire the router!
+                        router.handleDeepLink(.settings)
+                    }
+                }
         }
         .modelContainer(sharedModelContainer)
     }

@@ -11,7 +11,6 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(SessionManager.self) private var sessionManager
-    @Environment(\.appRouter) private var router
     var body: some View {
         Group {
             switch sessionManager.appState {
