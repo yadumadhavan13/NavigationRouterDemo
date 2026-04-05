@@ -5,14 +5,18 @@
 //  Created by Yadu Madhavan on 04/04/26.
 //
 
+import CoreNav
 import SwiftUI
 import SwiftData
 
 @main
 struct NavigationRouterDemoApp: App {
+    @State private var sessionManager = SessionManager()
+
+    @State private var router = Router()
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -26,6 +30,8 @@ struct NavigationRouterDemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.appRouter, router)
+                .environment(sessionManager)
         }
         .modelContainer(sharedModelContainer)
     }

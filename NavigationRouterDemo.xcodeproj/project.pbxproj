@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		025FA79D2F8184FA00277CD4 /* CoreNav in Frameworks */ = {isa = PBXBuildFile; productRef = 025FA79C2F8184FA00277CD4 /* CoreNav */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		025FA76C2F816E0000277CD4 /* NavigationRouterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02E4B1472F82086000AAAD7B /* CoreNav */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoreNav; path = ../Packages/CoreNav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025FA79D2F8184FA00277CD4 /* CoreNav in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,16 +39,25 @@
 			isa = PBXGroup;
 			children = (
 				025FA76E2F816E0000277CD4 /* NavigationRouterDemo */,
-				025FA76D2F816E0000277CD4 /* Products */,
+				02E4B14B2F82099200AAAD7B /* Frameworks */,
+				025FA76D2F816E0000277CD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		025FA76D2F816E0000277CD4 /* Products */ = {
+		025FA76D2F816E0000277CD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				025FA76C2F816E0000277CD4 /* NavigationRouterDemo.app */,
 			);
-			name = Products;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		02E4B14B2F82099200AAAD7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02E4B1472F82086000AAAD7B /* CoreNav */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +80,7 @@
 			);
 			name = NavigationRouterDemo;
 			packageProductDependencies = (
+				025FA79C2F8184FA00277CD4 /* CoreNav */,
 			);
 			productName = NavigationRouterDemo;
 			productReference = 025FA76C2F816E0000277CD4 /* NavigationRouterDemo.app */;
@@ -94,8 +110,10 @@
 			);
 			mainGroup = 025FA7632F816E0000277CD4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 025FA76D2F816E0000277CD4 /* Products */;
+			productRefGroup = 025FA76D2F816E0000277CD4 /* Frameworks */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -270,13 +288,14 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 26.4;
 			};
 			name = Debug;
@@ -312,13 +331,14 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 26.4;
 			};
 			name = Release;
@@ -345,6 +365,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		025FA79C2F8184FA00277CD4 /* CoreNav */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreNav;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 025FA7642F816E0000277CD4 /* Project object */;
 }
