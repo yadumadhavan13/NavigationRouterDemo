@@ -13,11 +13,13 @@ import SwiftUI
 @MainActor
 @Observable
 final class Router: AppRouting {
-    // 1. Store all paths dynamically in a dictionary
+    /// Store all paths dynamically in a dictionary
     private var paths: [AppTab: NavigationPath] = [:]
 
+    /// Selected tab
     public var selectedTab: AppTab = .recents
 
+    /// Initialiser
     public init() {
         // Initialize an empty stack for every tab on launch
         for tab in AppTab.allCases {
@@ -25,13 +27,14 @@ final class Router: AppRouting {
         }
     }
 
-    // 2. 🌟 The Subscript: Dynamically get/set the path for ANY tab.
-    // This is what allows MainTabView to use a clean ForEach loop.
+    /// The Subscript: Dynamically get/set the path for ANY tab.
+    /// This is what allows MainTabView to use a clean ForEach loop.
     public subscript(pathFor tab: AppTab) -> NavigationPath {
         get { paths[tab, default: NavigationPath()] }
         set { paths[tab] = newValue }
     }
 
+    /// Pop to root
     public func popToRoot() {
         // Dynamically clear all paths without needing to hardcode them
         for tab in AppTab.allCases {
@@ -40,6 +43,8 @@ final class Router: AppRouting {
         selectedTab = .recents
     }
 
+    /// Navigate to 
+    /// - Parameter to: <#to description#>
     func navigate(to: AppRoute) {
         // Append directly to the active tab's path
         paths[selectedTab]?.append(to)

@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		025977112F82D23F003D5426 /* CoreNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 025977102F82D23F003D5426 /* CoreNetwork */; };
 		025FA79D2F8184FA00277CD4 /* CoreNav in Frameworks */ = {isa = PBXBuildFile; productRef = 025FA79C2F8184FA00277CD4 /* CoreNav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		025FA76C2F816E0000277CD4 /* NavigationRouterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationRouterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02E4B1472F82086000AAAD7B /* CoreNav */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoreNav; path = ../Packages/CoreNav; sourceTree = "<group>"; };
+		02E4B19C2F82CEC000AAAD7B /* CoreNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoreNetwork; path = ../Packages/CoreNetwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -28,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025977112F82D23F003D5426 /* CoreNetwork in Frameworks */,
 				025FA79D2F8184FA00277CD4 /* CoreNav in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				02E4B1472F82086000AAAD7B /* CoreNav */,
+				02E4B19C2F82CEC000AAAD7B /* CoreNetwork */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -81,6 +85,7 @@
 			name = NavigationRouterDemo;
 			packageProductDependencies = (
 				025FA79C2F8184FA00277CD4 /* CoreNav */,
+				025977102F82D23F003D5426 /* CoreNetwork */,
 			);
 			productName = NavigationRouterDemo;
 			productReference = 025FA76C2F816E0000277CD4 /* NavigationRouterDemo.app */;
@@ -367,6 +372,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		025977102F82D23F003D5426 /* CoreNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreNetwork;
+		};
 		025FA79C2F8184FA00277CD4 /* CoreNav */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreNav;

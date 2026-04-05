@@ -1,5 +1,5 @@
 //
-//  RecentsView.swift
+//  DirectoryView.swift
 //  NavigationRouterDemo
 //
 //  Created by Yadu Madhavan on 05/04/26.
@@ -8,24 +8,25 @@
 import CoreNav
 import SwiftUI
 
-struct RecentsView: View {
+struct DirectoryView: View {
     @Environment(\.appRouter) private var router
 
+    /// body
     var body: some View {
-        Text("Recents")
-        Button("Recents details") {
-            // 3. Tell the router to do the heavy lifting
+        Text("Directory")
+        Button("Contacts details") {
+            // router handles the actions for contact details navigation.
             router.navigate(to: .contactsDetails(id: "123"))
         }
         .navigationDestination(for: AppRoute.self) { handle(route: $0) }
     }
 
-    // Update your deep routing switchboard
+    /// Handle the router actions for DirectoryView.
     @ViewBuilder
     private func handle(route: AppRoute) -> some View {
         switch route {
         case let .contactsDetails(id):
-            ContactsDetailsView()
+            ContactsDetailsView(id: id)
         default:
             Text("Oops! Invalid action")
         }
