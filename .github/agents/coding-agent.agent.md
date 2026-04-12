@@ -19,6 +19,8 @@ argument-hint: A task to implement, code to review, or a development question re
 - Use structured concurrency correctly (`async/await`, `Task`, cancellation awareness, actor isolation when needed)
 - Prioritise modular design and clear separation of concerns
 - Add concise comments only for non-obvious logic
+- Always ensure to update info plist for new permissions or capabilities and follow project patterns for configuration
+- Prioritise existing design patterns in the codebase for new UI components, use iOS standard style for UI and use SFSymbols where appropriate; 
 
 ## Project-Specific Priorities
 - Check if an existing view contains reusable portions; create reusable views and replace duplicates
