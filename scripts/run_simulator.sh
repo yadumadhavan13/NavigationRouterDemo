@@ -22,6 +22,43 @@ fi
 
 echo "📱 Using Simulator ID: $DEVICE_ID"
 
+# ==========================================
+# 🌟 STEP 2: FORMAT & LINT ONLY CHANGED FILES
+# ==========================================
+CHANGED_FILES=$(git ls-files --modified --others --exclude-standard | grep '\.swift$')
+
+if [ -z "$CHANGED_FILES" ]; then
+    echo "✨ No uncommitted Swift files to format or lint."
+else
+    echo "🧹 Formatting and Linting changed Swift files..."
+    
+    LINT_FAILED=0
+    
+    # Use a here-string (<<<) to prevent subshell isolation
+    while IFS= read -r file; do
+        if [ -n "$file" ]; then # Ensure the file string isn't empty
+            
+            # 1. Format the file first so trivial spacing doesn't trigger the linter
+            swiftformat "$file"
+            
+            # 2. Lint the newly formatted file (remove --strict if you want to allow warnings)
+            swiftlint lint --strict "$file"
+            
+            # If SwiftLint exits with an error code, flag it
+            if [ $? -ne 0 ]; then
+                LINT_FAILED=1
+            fi
+        fi
+    done <<< "$CHANGED_FILES"
+    
+    # Halt the build if ANY file failed the linting check
+    if [ $LINT_FAILED -ne 0 ]; then
+        echo "❌ SwiftLint found errors in your changed files! Please fix them before building."
+        exit 1 
+    fi
+fi
+# ==========================================
+
 # 2. Build the project
 echo "🔨 Building $SCHEME_NAME..."
 xcodebuild -project "$PROJECT_NAME" \
