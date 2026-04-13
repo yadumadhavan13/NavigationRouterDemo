@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to iOS Simulator",
+            "type": "lldb",
+            "request": "attach",
+            "program": "${workspaceFolder}/build/Build/Products/Debug-iphonesimulator/NavigationRouterDemo.app/NavigationRouterDemo",
+            "waitFor": true
+        }
+    ]
+}
